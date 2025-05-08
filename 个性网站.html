@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.wei.com</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type:  y mandatory;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .section{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+        }
+        .section-1{
+            background: linear-gradient(135deg, #1e90ff, #ff7f50);
+            color: white;
+            text-align: center;
+        }
+        .section-2{
+            background: linear-gradient(135deg, #ff7f50, #1e90ff);
+            color: white;
+            text-align: center;
+        }
+        .section-3{
+            background: linear-gradient(135deg, #1e90ff, #ff7f50);
+            color: white;
+            text-align: center;
+        }
+
+        .welcome-text{
+            font-size:100px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .next-page-button{
+            margin-top: 300px;
+            width: 165px;
+            height: 62px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 17px;
+            border-radius: 1rem;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            background: #100720;
+            transition: 0.3s ease;
+        }
+        .next-page-button:hover {
+            background: linear-gradient(135deg, #ff7f50, #1e90ff);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        } 
+        button::after{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94,247,1)17.8%, rgba(2,245,255,1) 100.2%);
+            filter:blur(15px);
+            z-index: -1;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        button:active{
+            transform: scale(0.9) ;
+            background:radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94,247,1)17.8%, rgba(2,245,255,1) 100.2%);
+            transition: 0.5s;
+        }
+        .container{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container .card{
+            position: absolute;
+            width: 240px;
+            height: 360px;
+            background-color: #5e5cfc;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgba(0, 0, 0, 1);
+            font-size: 8em;
+            font-weight: 700;
+            border: 10px solid rgba(0, 0, 0, 1);
+            transition: .5s;
+            transform-origin:50% 100%;
+            filter: hue-rotate(calc(var(--i) * 60deg));
+            box-shadow: 0 15px 50px rgba(0, 0, 0, .1);
+        }
+        .container:hover .card{
+            transform: rotate(calc(var(--i) * 5deg))translate(calc(var(--i) * 160px),-50px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, .25);
+            color: rgba(0, 0, 0, .25);
+            cursor: pointer;
+        }
+        .container:active .card:not(:active){
+            background-color:#333;
+        }
+        .container .card:active{
+            translate:calc(var(--i) * 20px) -50px;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="section section-1">
+    <div class="section-1-content">
+        <div class="welcome-text">Welcome<br> TO<br>MY WORLD</div>
+        <button class="next-page-button" onclick="document.querySelector('.section-2').scrollIntoView({ behavior: 'smooth' })">Let's Go</button>
+    </div>
+</div>  
+<div class="section section-2">
+    <div class="container">
+        <div class="card" style="--i:-4;" onclick="document.querySelector('.section-3').scrollIntoView({ behavior: 'smooth' })">
+            <img src="Web.jpg" alt="Image 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+        <div class="card" style="--i:-3;" onclick="alert('跳转到其他页面或部分')">
+            <img src="Travel.jpg" alt="Image 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+        <div class="card" style="--i:-2;" onclick="alert('跳转到其他页面或部分')">
+            <img src="3D Printer.jpg" alt="Image 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+        <div class="card" style="--i:-1;" onclick="alert('跳转到其他页面或部分')">
+            <img src="Movie.jpg" alt="Image 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+        <div class="card" style="--i:0;" onclick="document.querySelector('.section-3').scrollIntoView({ behavior: 'smooth' })">
+            <img src="Basketball.jpg" alt="Image 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+        <div class="card" style="--i:1;" onclick="alert('跳转到其他页面或部分')">
+            <img src="Music.jpg" alt="Image 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+        <div class="card" style="--i:2;" onclick="alert('跳转到其他页面或部分')">
+            <img src="Book.jpg" alt="Image 7" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+        <div class="card" style="--i:3;" onclick="alert('跳转到其他页面或部分')">
+            <img src="Computer game.jpg" alt="Image 8" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+        <div class="card" style="--i:4;" onclick="alert('跳转到其他页面或部分')">
+            <img src="path/to/your/image9.jpg" alt="Image 9" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+    </div>
+</div>
+
+
+    <div class="section section-3">
+        <div class="section-3-content">
+            <h1>Basketball</h1>
+            <p style="font-size: 20px; margin-top: 20px; text-align: center;">
+                I love playing basketball.</p>
+            <img src="" alt="Basketball Image" style="width: 300px; height: 300px; border-radius: 8px; margin-top: 20px;">
+
+        </div>
+    </div>
+    
+</body>
+</html>

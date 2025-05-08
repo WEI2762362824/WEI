@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D建模展示</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000000, #1e3c72); /* 黑色到深蓝渐变 */
+            color: #fff;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        section {
+            min-height: 100vh; /* 每个部分占满一屏 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        iframe {
+            border: 5px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* 发光效果 */
+        }
+        /* 动态粒子背景 */
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: move 10s linear infinite;
+        }
+        @keyframes move {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100vw);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#section1">新页面</a></li>
+                <li><a href="#section2">3D展示</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- 新页面内容 -->
+    <section id="section1">
+        <h1>欢迎来到新页面</h1>
+        <p>这是一个示例页面，背景和导航栏与 3D 展示页面一致。</p>
+    </section>
+    <!-- 3D展示内容 -->
+    <section id="section2">
+        <div id="particle-container"></div>
+        <iframe 
+            width="640" 
+            height="480" 
+            src="https://www.51jianmo.com/newModel/?code=M00000000001001932KIE&desc=0&icon=1&type=1&quick=0&opacity=0&full=0&isxcx=0" 
+            allowfullscreen>
+        </iframe>
+    </section>
+    <script>
+        // 动态生成粒子
+        const particleContainer = document.getElementById('particle-container');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.width = `${Math.random() * 10 + 5}px`;
+            particle.style.height = particle.style.width;
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            particleContainer.appendChild(particle);
+        }
+    </script>
+</body>
+</html>
